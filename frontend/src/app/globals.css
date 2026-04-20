@@ -1,2 +1,16 @@
 @import "tailwindcss";
 
+:root {
+  /* Literal Color Names */
+  --color-obsidian: #1E201E;
+  --color-charcoal: #3C3D37;
+  --color-olive: #697565;
+  --color-creme: #ECDFCC;
+
+  
+  --bg-primary: #ECDFCC;       
+  --bg-secondary: #ffffff;     
+  --text-primary: #1E201E;     
+  --text-secondary: #3C3D37;   
+  --accent-color: #697565;     
+}
