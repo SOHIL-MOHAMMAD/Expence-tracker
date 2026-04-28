@@ -43,7 +43,7 @@ const Table = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8000/expenses/')
+        const res = await axios.get('https://expence-tracker-9rco.onrender.com/expenses/')
         setData(res.data.results ? res.data.results : res.data)
       } catch (err) {
         console.log("Error fetching data:", err)
@@ -61,7 +61,7 @@ const Table = () => {
 
     try {
       console.log(`Attempting to delete ID: ${id}`); 
-      const response = await axios.delete(`http://127.0.0.1:8000/expenses/${id}/`);
+      const response = await axios.delete(`https://expence-tracker-9rco.onrender.com/expenses/${id}/`);
       console.log("Delete Success! Status:", response.status); 
 
       setData((prevData) => prevData.filter((item) => item.id !== id));

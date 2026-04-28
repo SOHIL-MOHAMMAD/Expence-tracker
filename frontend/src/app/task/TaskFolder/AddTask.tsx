@@ -23,7 +23,7 @@ const AddTask = () => {
 
     try {
       const res = await axios.post(
-        'http://127.0.0.1:8000/task/',
+        'https://expence-tracker-9rco.onrender.com/task/',
         { tasks }
       )
 
@@ -49,7 +49,7 @@ const AddTask = () => {
         initial={{ opacity:0, y:40, scale:.95 }}
         animate={{ opacity:1, y:0, scale:1 }}
         transition={{ duration:.6 }}
-        className='w-full max-w-3xl rounded-[32px] bg-white shadow-2xl border border-neutral-200 p-6 md:p-10'
+        className='w-full max-w-3xl rounded-4xl bg-white shadow-2xl border border-neutral-200 p-6 md:p-10'
       >
 
         {/* Header */}
@@ -129,7 +129,7 @@ const AddTask = () => {
             whileTap={{ scale:.96 }}
             disabled={loading}
             type='submit'
-            className='h-16 px-8 rounded-2xl font-semibold shadow-xl flex items-center justify-center gap-2 min-w-[170px]'
+            className='h-16 px-8 rounded-2xl font-semibold shadow-xl flex items-center justify-center gap-2 min-w-42.5'
           >
             {loading ? (
               <motion.div

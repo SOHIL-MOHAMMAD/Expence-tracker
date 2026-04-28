@@ -22,10 +22,9 @@ const AddExpense = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [description, setDescription] = useState<string>('')
 
-  const API_BASE_URL = 'http://127.0.0.1:8000';
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/category/`)
+    axios.get(`https://expence-tracker-9rco.onrender.com/category/`)
       .then(res => setCategories(res.data))
       .catch(err => console.error("Failed to load categories:", err));
   }, []);
@@ -57,7 +56,7 @@ const AddExpense = () => {
     formData.append('description', description);
 
     try { 
-      const res = await axios.post(`${API_BASE_URL}/expenses/`, formData, {
+      const res = await axios.post(`https://expence-tracker-9rco.onrender.com/expenses/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

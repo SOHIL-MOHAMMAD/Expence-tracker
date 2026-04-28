@@ -6,7 +6,7 @@ interface Task {
 export default async function taskApi(): Promise<Task[]> {
   try {
     const res = await fetch(
-      'http://127.0.0.1:8000/task/',
+      'https://expence-tracker-9rco.onrender.com/task/',
       {
         cache: 'no-store'
       }
@@ -20,6 +20,6 @@ export default async function taskApi(): Promise<Task[]> {
     return data
 
   } catch (error) {
-    throw new Error('Failed to fetch data')
+    throw new Error(`Failed to fetch data ${error}`)
   }
 }

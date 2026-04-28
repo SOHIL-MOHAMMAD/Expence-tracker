@@ -18,7 +18,7 @@ interface Props {
 
 async function getData(id: string): Promise<ExpenseList | null> {
   try {
-    const res = await fetch(`http://127.0.0.1:8000/expenses/${id}`, {
+    const res = await fetch(`https://expence-tracker-9rco.onrender.com/expenses/${id}`, {
       cache: 'no-store'
     });
 
