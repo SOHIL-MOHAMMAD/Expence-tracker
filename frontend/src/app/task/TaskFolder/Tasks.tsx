@@ -25,7 +25,7 @@ const Tasks = () => {
         setTasks(data)
       }
       catch(err){
-        setError('Failed to fetch tasks')
+        setError(`failed to fetch data ${err}`)
       }
       finally{
         setLoading(false)
@@ -105,7 +105,7 @@ const Tasks = () => {
         <motion.div
          initial={{opacity:0}}
          animate={{opacity:1}}
-         className='rounded-[32px] border shadow-xl p-12 text-center'
+         className='rounded-4xl border shadow-xl p-12 text-center'
         >
            <h3 className='text-2xl font-semibold mb-3'>No Tasks Yet</h3>
            <p className='text-neutral-500'>Create your first task above.</p>
