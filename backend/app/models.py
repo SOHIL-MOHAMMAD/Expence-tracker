@@ -19,12 +19,11 @@ class Add_expenses(models.Model):
     return self.name
   
 class Task(models.Model):
-  name = models.CharField(max_length=200)
-  due_date = models.DateTimeField()
+  tasks = models.CharField(max_length=200)
   completed = models.BooleanField(default=False)
   
   def __str__(self):
-    return self.name
+    return self.tasks
   
   
 class Wallet(models.Model):

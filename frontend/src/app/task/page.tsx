@@ -1,9 +1,11 @@
 import React from 'react'
-
+import AddTask from './TaskFolder/AddTask'
+import Tasks from './TaskFolder/Tasks'
 const Task = () => {
   return (
     <div>
-      this is task
+      <AddTask/>
+      <Tasks/>
     </div>
   )
 }

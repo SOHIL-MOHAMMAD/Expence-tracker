@@ -1,9 +1,9 @@
 
-import Wallet from "./wallet/page"
+import Expense from "./expense/page"
 const Home = () => {
   return (
     <div >
-         <Wallet/>
+         <Expense/>
     </div>
   )
 }

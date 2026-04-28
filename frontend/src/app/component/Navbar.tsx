@@ -8,8 +8,7 @@ import { SlMenu } from "react-icons/sl";
 import { RxCross2 } from "react-icons/rx";
 
 const NavItems = [
-  { name: 'Wallet', path: '/' },
-  { name: 'Expense', path: '/expense' },
+  { name: 'Expense', path: '/' },
   { name: 'Task', path: '/task' },
 ]
 

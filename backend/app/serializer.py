@@ -18,4 +18,4 @@ class CategorySerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
   class Meta:
     model = models.Task
-    fields = '__all__'
+    fields = ['id', 'tasks']
