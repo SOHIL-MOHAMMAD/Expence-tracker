@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/navigation' // Imported useRouter
+import { useRouter } from 'next/navigation' 
 
 interface DATA {
   id: number
@@ -38,7 +38,7 @@ const detailsVariants = {
 const Table = () => {
   const [data, setData] = useState<DATA[]>([])
   const [expandedItems, setExpandedItems] = useState<{ [id: number]: boolean }>({}) 
-  const router = useRouter() // Initialize router
+  const router = useRouter() 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,7 +53,7 @@ const Table = () => {
     fetchData()
   }, [])
 
-  const handleDelete = async (e: React.MouseEvent, id: number) => {
+  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
     e.stopPropagation(); 
     
     const isConfirmed = window.confirm("Are you sure you want to delete this expense?");
@@ -66,9 +66,14 @@ const Table = () => {
 
       setData((prevData) => prevData.filter((item) => item.id !== id));
       
-    } catch (err: any) {
-      console.error("Backend Error Response:", err.response?.data);
-      console.error("Full Error:", err.message);
+    } catch (err: unknown) { // FIXED: Changed 'any' to 'unknown'
+      // FIXED: Safely check if the error is from Axios before accessing .response
+      if (axios.isAxiosError(err)) {
+        console.error("Backend Error Response:", err.response?.data);
+        console.error("Full Error:", err.message);
+      } else {
+        console.error("Unexpected Error:", err);
+      }
       alert("Delete fail ho gaya bhai! Console check karo.");
     }
   }
@@ -118,7 +123,7 @@ const Table = () => {
                 </td>
                 <td className="p-3">
                   <button 
-                    onClick={(e) => handleDelete(e, item.id)} // Pass event to stop propagation
+                    onClick={(e) => handleDelete(e, item.id)}
                     className="bg-red-900/50 hover:bg-red-800 text-red-200 px-3 py-1 rounded text-sm transition-colors border border-red-800"
                   >
                     Delete
@@ -229,4 +234,4 @@ const Table = () => {
   )
 }
 
-export default Table; 
+export default Table;
